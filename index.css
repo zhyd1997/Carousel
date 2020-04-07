@@ -1,0 +1,16 @@
+.carousel-wrapper {
+    position: relative;
+    height: 300px;
+    width: 300px;
+}
+
+.carousel-item {
+    position: absolute;
+    display: none;
+    height: 30px;
+    width: 30px;
+}
+
+.carousel-wrapper .selected {
+    display: block;
+}
