@@ -11,6 +11,6 @@
     width: 30px;
 }
 
-.carousel-wrapper .selected {
+.carousel-wrapper .current {
     display: block;
 }
