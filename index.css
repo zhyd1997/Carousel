@@ -39,3 +39,23 @@
 .indicator-item_current {
     background-color: royalblue;
 }
+
+.arrow {
+    background-color: black;
+    position: absolute;
+    display: inline-block;
+    font-size: 0;
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+}
+
+.arrow-left {
+    left: 15px;
+}
+
+.arrow-right {
+    right: 15px;
+}
