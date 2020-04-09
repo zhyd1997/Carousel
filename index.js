@@ -17,11 +17,7 @@ elArrowRight.onclick = function handleClick () {
       currentIndex = currentIndex + 1;
     }
   
-//   console.log('现在是第 ' + oldIndex + ' 图显示，应该改成第 ' + currentIndex + ' 图显示');
-  elListCarouselItem[oldIndex].classList.remove('carousel-item_current');
-  elListCarouselItem[currentIndex].classList.add('carousel-item_current');
-  elIndicatorItem[oldIndex].classList.remove('indicator-item_current');
-  elIndicatorItem[currentIndex].classList.add('indicator-item_current');
+  handleChange (oldIndex, currentIndex);
 }
 
 elArrowLeft.onclick = function handleClick() {
@@ -33,10 +29,7 @@ elArrowLeft.onclick = function handleClick() {
       currentIndex = currentIndex - 1;
     }
     
-  elListCarouselItem[oldIndex].classList.remove('carousel-item_current');
-  elListCarouselItem[currentIndex].classList.add('carousel-item_current');
-  elIndicatorItem[oldIndex].classList.remove('indicator-item_current');
-  elIndicatorItem[currentIndex].classList.add('indicator-item_current');
+  handleChange (oldIndex, currentIndex);
 }
 
 elIndicatorList.onclick = function(event) {
@@ -49,10 +42,14 @@ elIndicatorList.onclick = function(event) {
   var targetIndex = parseInt(target.dataset.index, 10);
   var oldIndex = currentIndex;
   
-  elListCarouselItem[oldIndex].classList.remove('carousel-item_current');
-  elListCarouselItem[targetIndex].classList.add('carousel-item_current');
-  elIndicatorItem[oldIndex].classList.remove('indicator-item_current');
-  elIndicatorItem[targetIndex].classList.add('indicator-item_current');
+  handleChange(oldIndex, targetIndex);
   
   currentIndex = targetIndex;
+}
+
+function handleChange (oldIndex, currentIndex) {
+  elListCarouselItem[oldIndex].classList.remove('carousel-item_current');
+  elListCarouselItem[currentIndex].classList.add('carousel-item_current');
+  elIndicatorItem[oldIndex].classList.remove('indicator-item_current');
+  elIndicatorItem[currentIndex].classList.add('indicator-item_current');
 }
