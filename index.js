@@ -6,11 +6,12 @@ var elIndicatorList = document.querySelector('.indicator-list');
 var elIndicatorItem = document.querySelectorAll('.indicator-item');
 
 var currentIndex = 0;
+var listLength = elListCarouselItem.length;
 
 elArrowRight.onclick = function handleClick () {
   var oldIndex = currentIndex;
   
-  if (currentIndex >= 3) {
+  if (currentIndex >= listLength-1) {
     currentIndex = 0;
     } else {
       currentIndex = currentIndex + 1;
@@ -27,7 +28,7 @@ elArrowLeft.onclick = function handleClick() {
   var oldIndex = currentIndex;
   
   if (currentIndex <= 0) {
-    currentIndex = 3;
+    currentIndex = listLength-1;
     } else {
       currentIndex = currentIndex - 1;
     }
