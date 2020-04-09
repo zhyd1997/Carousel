@@ -2,7 +2,11 @@ var elArrowRight = document.querySelector('.arrow-right');
 var elArrowLeft = document.querySelector('.arrow-left');
 var elListCarouselItem = document.querySelectorAll('.carousel-item');
 
+var elIndicatorList = document.querySelector('.indicator-list');
+var elIndicatorItem = document.querySelectorAll('.indicator-item');
+
 var currentIndex = 0;
+
 elArrowRight.onclick = function handleClick () {
   var oldIndex = currentIndex;
   
@@ -28,4 +32,22 @@ elArrowLeft.onclick = function handleClick() {
     
   elListCarouselItem[oldIndex].classList.remove('carousel-item_current');
   elListCarouselItem[currentIndex].classList.add('carousel-item_current');
+}
+
+elIndicatorList.onclick = function(event) {
+  var target = event.target;
+  
+  if (!target.classList.contains('indicator-item')) { 
+    return; 
+  }
+  
+  var targetIndex = parseInt(target.dataset.index, 10);
+  var oldIndex = currentIndex;
+  
+  elListCarouselItem[oldIndex].classList.remove('carousel-item_current');
+  elListCarouselItem[targetIndex].classList.add('carousel-item_current');
+  elIndicatorItem[oldIndex].classList.remove('indicator-item_current');
+  elIndicatorItem[targetIndex].classList.add('indicator-item_current');
+  
+  currentIndex = targetIndex;
 }
