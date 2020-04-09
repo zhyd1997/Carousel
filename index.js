@@ -1,6 +1,6 @@
-var elArrowRight = document.getElementsByClassName('arrow-right')[0];
-var elArrowLeft = document.getElementsByClassName('arrow-left')[0];
-var elListCarouselItem = document.getElementsByClassName('carousel-item');
+var elArrowRight = document.querySelector('.arrow-right');
+var elArrowLeft = document.querySelector('.arrow-left');
+var elListCarouselItem = document.querySelectorAll('.carousel-item');
 
 var currentIndex = 0;
 elArrowRight.onclick = function handleClick () {
