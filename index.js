@@ -19,6 +19,8 @@ elArrowRight.onclick = function handleClick () {
 //   console.log('现在是第 ' + oldIndex + ' 图显示，应该改成第 ' + currentIndex + ' 图显示');
   elListCarouselItem[oldIndex].classList.remove('carousel-item_current');
   elListCarouselItem[currentIndex].classList.add('carousel-item_current');
+  elIndicatorItem[oldIndex].classList.remove('indicator-item_current');
+  elIndicatorItem[currentIndex].classList.add('indicator-item_current');
 }
 
 elArrowLeft.onclick = function handleClick() {
@@ -32,6 +34,8 @@ elArrowLeft.onclick = function handleClick() {
     
   elListCarouselItem[oldIndex].classList.remove('carousel-item_current');
   elListCarouselItem[currentIndex].classList.add('carousel-item_current');
+  elIndicatorItem[oldIndex].classList.remove('indicator-item_current');
+  elIndicatorItem[currentIndex].classList.add('indicator-item_current');
 }
 
 elIndicatorList.onclick = function(event) {
