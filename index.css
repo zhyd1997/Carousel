@@ -47,7 +47,9 @@
     position: absolute;
     top: -10px;
     bottom: -10px;
-    background:pink;
+    left: 0;
+    right: 0;
+    /* background:pink; */
   }
   
   .indicator-item:hover {
