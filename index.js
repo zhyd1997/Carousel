@@ -33,11 +33,15 @@ elIndicatorList.onclick = function(event) {
 }
 
 function handleIndexChange(targetIndex) {
-  processIndex(targetIndex);
+  if (targetIndex === currentIndex) {
+    return;
+  }
+
+  changeCurrentIndex(targetIndex);
   changeCurrentClass();
 }
 
-function processIndex(targetIndex) {
+function changeCurrentIndex(targetIndex) {
   if (targetIndex > listLength - 1) {
     currentIndex = 0;
   } else if (targetIndex < 0) {
