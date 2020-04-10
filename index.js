@@ -42,7 +42,7 @@ function handleIndexChange(targetIndex) {
 }
 
 function changeCurrentIndex(targetIndex) {
-  if (targetIndex > listLength - 1) {
+  if (targetIndex >= listLength) {
     currentIndex = 0;
   } else if (targetIndex < 0) {
     currentIndex = listLength - 1;
