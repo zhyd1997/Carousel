@@ -52,13 +52,11 @@
   
   .indicator-item:hover {
     transform: scale(1.3);
-    transform: translate3d(0,0,0);
   }
   
   .indicator-item_current {
     background-color: #00CCFF;
     transform: scale(1.3);
-    transform: translate3d(0,0,0);
   }
   
   .arrow {
