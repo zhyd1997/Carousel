@@ -11,15 +11,13 @@ var listLength = elListCarouselItem.length;
 elArrowRight.onclick = function() {
   var targetIndex = currentIndex + 1;
   
-  processIndex(targetIndex);
-  handleCurrentIndexChange();
+  handleIndexChange(targetIndex);
 }
 
 elArrowLeft.onclick = function() {
   var targetIndex = currentIndex - 1;
   
-  processIndex(targetIndex); 
-  handleCurrentIndexChange();
+  handleIndexChange(targetIndex);
 }
 
 elIndicatorList.onclick = function(event) {
@@ -31,8 +29,12 @@ elIndicatorList.onclick = function(event) {
   
   var targetIndex = parseInt(target.dataset.index, 10);
   
+  handleIndexChange(targetIndex);
+}
+
+function handleIndexChange(targetIndex) {
   processIndex(targetIndex);
-  handleCurrentIndexChange();
+  changeCurrentClass();
 }
 
 function processIndex(targetIndex) {
@@ -45,7 +47,7 @@ function processIndex(targetIndex) {
   }
 }
 
-function handleCurrentIndexChange() {
+function changeCurrentClass() {
   document.querySelector('.carousel-item_current').classList.remove('carousel-item_current');
   elListCarouselItem[currentIndex].classList.add('carousel-item_current');
   document.querySelector('.indicator-item_current').classList.remove('indicator-item_current');
