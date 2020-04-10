@@ -10,25 +10,21 @@ var listLength = elListCarouselItem.length;
 
 elArrowRight.onclick = function() {
   var targetIndex = currentIndex + 1;
-  
   handleIndexChange(targetIndex);
 }
 
 elArrowLeft.onclick = function() {
   var targetIndex = currentIndex - 1;
-  
   handleIndexChange(targetIndex);
 }
 
 elIndicatorList.onclick = function(event) {
   var target = event.target;
-  
   if (!target.classList.contains('indicator-item')) { 
     return; 
   }
   
   var targetIndex = parseInt(target.dataset.index, 10);
-  
   handleIndexChange(targetIndex);
 }
 
