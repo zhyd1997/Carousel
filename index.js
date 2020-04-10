@@ -8,28 +8,18 @@ var elIndicatorItem = document.querySelectorAll('.indicator-item');
 var currentIndex = 0;
 var listLength = elListCarouselItem.length;
 
-elArrowRight.onclick = function handleClick () {
-  var oldIndex = currentIndex;
+elArrowRight.onclick = function() {
+  var targetIndex = currentIndex + 1;
   
-  if (currentIndex >= listLength-1) {
-    currentIndex = 0;
-    } else {
-      currentIndex = currentIndex + 1;
-    }
-  
-  handleChange (oldIndex, currentIndex);
+  processIndex(targetIndex);
+  handleCurrentIndexChange();
 }
 
-elArrowLeft.onclick = function handleClick() {
-  var oldIndex = currentIndex;
+elArrowLeft.onclick = function() {
+  var targetIndex = currentIndex - 1;
   
-  if (currentIndex <= 0) {
-    currentIndex = listLength-1;
-    } else {
-      currentIndex = currentIndex - 1;
-    }
-    
-  handleChange (oldIndex, currentIndex);
+  processIndex(targetIndex); 
+  handleCurrentIndexChange();
 }
 
 elIndicatorList.onclick = function(event) {
@@ -40,16 +30,24 @@ elIndicatorList.onclick = function(event) {
   }
   
   var targetIndex = parseInt(target.dataset.index, 10);
-  var oldIndex = currentIndex;
   
-  handleChange(oldIndex, targetIndex);
-  
-  currentIndex = targetIndex;
+  processIndex(targetIndex);
+  handleCurrentIndexChange();
 }
 
-function handleChange (oldIndex, currentIndex) {
-  elListCarouselItem[oldIndex].classList.remove('carousel-item_current');
+function processIndex(targetIndex) {
+  if (targetIndex > listLength - 1) {
+    currentIndex = 0;
+  } else if (targetIndex < 0) {
+    currentIndex = listLength - 1;
+  } else {
+    currentIndex = targetIndex;
+  }
+}
+
+function handleCurrentIndexChange() {
+  document.querySelector('.carousel-item_current').classList.remove('carousel-item_current');
   elListCarouselItem[currentIndex].classList.add('carousel-item_current');
-  elIndicatorItem[oldIndex].classList.remove('indicator-item_current');
+  document.querySelector('.indicator-item_current').classList.remove('indicator-item_current');
   elIndicatorItem[currentIndex].classList.add('indicator-item_current');
 }
